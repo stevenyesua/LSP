@@ -18,3 +18,11 @@ Route::get('/', function () {
 });
 
 
+Route::get('/register', function () {
+    return view('register');
+});
+
+Route::get('/daftarmb', function () {
+    return view('daftarmb');
+});
+
