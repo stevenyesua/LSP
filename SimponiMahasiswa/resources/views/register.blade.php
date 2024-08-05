@@ -1,31 +1,33 @@
 @extends('layouts.main')
 @section('content')
 
-<div class="containter mt-16">
+<div class="container mt-16 mb-16">
     <div class="box flex">
         <div class="box-penjelasan bg-gray-900 w-96 text-white p-8">
-            <h1 class="font-bold text-lg">Beberapa ketentuan</h1>
+            <h1 class="font-bold text-lg">Beberapa ketentuan pembuatan akun</h1>
             <div class="mt-4">
-                Pendaftaran mahasiswa baru telah dibuka silahkan daftarkan diri anda di Universitas MDP.
+                Jika anda ingin mendaftar sebagai mahasiswa baru makan anda harus memiliki Account untuk Login ke Simponi.
             </div>
             <div class="mt-4 font-bold">
-                Syarat Pendaftaran :
+                Syarat Pembuatan Akun :
             </div>
-            <div class="mt-4">
+            <div class="mt-4 ">
                 Lulus dan tamat SMA/SMK
-                Mengikuti dan lulus tes tertulis, wawancara dan tes kesehatan
+            </div>
+            <div>
+                Membayar Biaya formulir pendaftaran sebesar Rp. 400.000 ke rekening atas nama Universitas Multi Data Palembang dengan No Rekening BCA : 1500141515 
             </div>
             <div class="mt-4 font-bold">
                 Ketentuan lainnya :
             </div>
             <div class="mt-4">
-                Jika calon mahasiswa TIDAK melakukan registrasi ulang sesuai jadwal yang telah ditentukan, maka dianggap mengundurkan diri dari program PMB.
-
+                Ketika Calon Mahasiswa selesai mendaftarkan akun nya, maka mahasiswa akan menunggu persetujuan pembuatan akun dari Admin selama 1x24 jam, Silahkan hubungi kontak admin : 082181034762
             </div>
-            <div class="mt-4 flex">
-                <div class="font-bold mr-1">Note</div>
-                <div class="font-bold mr-1">:</div>
-                <div>hal-hal lain yang belum diatur, akan diatur kemudian.</div>
+            <div class="mt-4 font-bold">
+                Note :
+            </div>
+            <div class="mt-4">
+                <div>Jika calon mahasiswa TIDAK melampirkan bukti pembayaran yang valid , maka pembuatan akun akan di TOLAK.</div>
             </div>            
         </div>
         <div class="box-formulir bg-white w-96 p-8">
@@ -55,12 +57,46 @@
                 </div>
                 <div class="relative mt-4">
                     <input type="text" id="nama" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
-                    <label for="nama" class="ml-4 absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4">Tempat Lahir</label>
+                    <label for="nama" class="ml-4 absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4">No Handphone</label>
+                </div>
+                <div class="relative mt-4">
+                    <input type="date" id="nama" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
+                    <label for="nama" class="ml-4 absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4">Tanggal Lahir</label>
+                </div>
+                <div class="relative mt-4">
+                    <input type="file" id="bukti-pembayaran" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
+                    <label for="bukti-pembayaran" class="ml-4 absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4">Bukti Pembayaran</label>
+                </div>
+                <div class="relative mt-4 text-xs flex">
+                    <p class="">Jika sudah memiliki akun silahkan
+                        <a href="#" class="inline-flex items-center font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                       masuk disini.
+                        </a>
+                    </p>
+                </div>
+                <div class="relative mt-4">
+                    <button type="button" class="text-white bg-[#3b5998] w-full hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center justify-center dark:focus:ring-[#3b5998]/55 me-2 mb-2">
+                        Daftar
+                    </button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+<script>
+    function togglePasswordVisibility() {
+        const passwordField = document.getElementById('password');
+        const toggleIcon = document.getElementById('password-toggle-icon');
+
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            toggleIcon.src = "{{ asset('/images/eye-open.png') }}"; // Ganti ke ikon mata terbuka
+        } else {
+            passwordField.type = 'password';
+            toggleIcon.src = "{{ asset('/images/eye-close.png') }}"; // Ganti ke ikon mata tertutup
+        }
+    }
+</script>
 
 
 @endsection

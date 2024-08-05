@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     @vite('resources/css/app.css')
 </head>
 <body class="bg-gray-300">
@@ -14,15 +18,19 @@
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Simponi Mahasiswa</span>
         </a>
         <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            <div class="informasi-login mr-4 text-white flex">
+                <div class="nama text-sm">Steven Yesua Sutanto</div>
+                <div class="nama text-xs">Calon Mahasiswa</div>
+            </div>
             <button type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                 <span class="sr-only">Open user menu</span>
-                <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo">
+                <img class="w-8 h-8 rounded-full" src="{{asset('images/steven.png')}}" alt="user photo">
             </button>
             <!-- Dropdown menu -->
             <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
                 <div class="px-4 py-3">
-                <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
-                <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
+                <span class="block text-sm text-gray-900 dark:text-white">Steven Yesua Sutanto</span>
+                <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">stevenyesua@gmail.com</span>
                 </div>
                 <ul class="py-2" aria-labelledby="user-menu-button">
                 <li>
@@ -69,5 +77,18 @@
     </nav>
     
     @yield('content')
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdownToggle = document.getElementById('user-menu-button');
+            const dropdownMenu = document.getElementById('user-dropdown');
+
+            if (dropdownToggle && dropdownMenu) {
+                dropdownToggle.addEventListener('click', function () {
+                    dropdownMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
 </body>
 </html>

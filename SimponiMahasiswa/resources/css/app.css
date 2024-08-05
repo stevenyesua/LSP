@@ -14,7 +14,7 @@
    
 } */
 
-.containter{
+.container{
     display: flex;
     justify-content:center ;
     flex-direction: column;
@@ -30,4 +30,30 @@
 
 .post1{
     display: flex;
+}
+
+#user-dropdown {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    z-index: 50;
+}
+
+.flex.items-center.md\:order-2 {
+    position: relative;
+}
+
+.informasi-login{
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.swiper-wrapper {
+    width: 100%;
+    height: max-content !important;
+    padding-bottom: 64px !important;
+    -webkit-transition-timing-function: linear !important;
+    transition-timing-function: linear !important;
+    position: relative;
 }

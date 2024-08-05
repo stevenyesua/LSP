@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
 
-<div class="containter mt-16">
+<div class="container mt-16">
     <div class="box flex">
         <div class="box-penjelasan bg-gray-900 w-96 text-white p-8">
             <h1 class="font-bold text-lg">Beberapa ketentuan</h1>
