@@ -14,6 +14,7 @@
    
 } */
 
+
 .container{
     display: flex;
     justify-content:center ;
@@ -57,3 +58,48 @@
     transition-timing-function: linear !important;
     position: relative;
 }
+
+.box-about{
+    flex-direction: column;
+    justify-content: center;
+}
+
+#table-user_length{
+    @apply mb-4;
+}
+
+#table-user_length select{
+    @apply w-14;
+}
+
+.container-detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.status-akun{
+    align-items: center
+}
+
+.status-df {
+    align-items: center
+
+}
+
+.status-acc{
+    align-items: center
+}
+
+.bukti-foto{
+    justify-content: center;
+    align-items: center;
+}
+
+#default-modal {
+    position: fixed;
+    transform: translate(28%, -0%);
+    z-index: 0; /* Pastikan modal berada di depan elemen lain */
+  }
+  
