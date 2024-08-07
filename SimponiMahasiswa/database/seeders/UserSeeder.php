@@ -19,10 +19,10 @@ class UserSeeder extends Seeder
             'asal_sekolah' => 'SMA Ignatius Global School',
             'no_telp' => '082181034762',
             'tanggal_lahir' => '2002-12-29',
-            'bukti' => 'kosong',
+            'bukti' => 'buktisteven.jpg',
             'status' => 'aktif',
             'role_id' => 1,
-            'foto' => '',
+            'foto' => 'stevenpp.png',
         ]);
 
         \DB::table('users')->insert([
@@ -32,10 +32,10 @@ class UserSeeder extends Seeder
             'asal_sekolah' => 'SMA Xaverius 3',
             'no_telp' => '08123213123',
             'tanggal_lahir' => '2000-12-29',
-            'bukti' => 'kosong',
+            'bukti' => 'buktifelix.jpg',
             'status' => 'pending',
             'role_id' => 2,
-            'foto' => '',
+            'foto' => 'felixpp.jpg',
         ]);
     }
 }

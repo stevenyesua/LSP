@@ -31,14 +31,20 @@ class MahasiswaController extends Controller
     {
         // $this->authorize('create',User::class);
         $model = $this->model; 
-        $model->user_id = $request->user_id;
+        $model->user_id = Auth::user()->id;
         $model->jenis_kelamin = $request->jenis_kelamin;
-        $model->password = bcrypt($request->password);
         $model->jurusan = $request->jurusan;
         $model->waktu_kuliah = $request->waktu_kuliah;
         $model->agama = $request->agama;
         $model->alamat = $request->alamat;
         $model->tempat_lahir = $request->tempat_lahir;
+        $hasil_test='';
+        if ($request->hasFile('hasil_test') && $request->file('hasil_test')->isValid()) {
+            $text = $request->hasil_test->getClientOriginalExtension();
+            $hasil_test = "foto-".time() . "." . $text;
+            $request->hasil_test->storeAs("public", $hasil_test);
+            $model->hasil_test = $hasil_test;
+        };
         $model->hasil_test = $request->hasil_test;
         $model->status = 2;
         $model->save();
@@ -83,5 +89,15 @@ class MahasiswaController extends Controller
     function detail($id) {
         $collection = Mahasiswa::find($id);
         return view('mahasiswa.detail', compact('collection'));
+    }
+
+    
+    public function validationAdmin(Request $request,string $id)
+    {
+        $update = get_class($this->model)::find($id);
+        // $this->authorize('validationAdmin',[User::class,$update]);
+        $update->status = $request->validatorAdmin;
+        $update->save();
+        return redirect()->back();
     }
 }

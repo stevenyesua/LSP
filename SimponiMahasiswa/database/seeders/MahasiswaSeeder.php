@@ -20,7 +20,7 @@ class MahasiswaSeeder extends Seeder
             'agama' => 'Kristen',
             'alamat' => 'Jl. Perintis Kemerdekaan',
             'tempat_lahir' => 'Palembang',
-            'hasil_test' => 'kosong',
+            'hasil_test' => 'sbmptn.png',
             'status' => 'aktif',
         ]);
 
@@ -32,7 +32,7 @@ class MahasiswaSeeder extends Seeder
             'agama' => 'Kristen',
             'alamat' => 'Jl. Cinde',
             'tempat_lahir' => 'Jambi',
-            'hasil_test' => 'kosong',
+            'hasil_test' => 'sbmptn.png',
             'status' => 'pending',
         ]);
     }

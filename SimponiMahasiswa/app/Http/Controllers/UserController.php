@@ -55,7 +55,7 @@ class UserController extends Controller
         };
         $model->save();
         $request->session()->flash("info", "Data baru berhasil ditambahkan");
-        return redirect()->route('user.index');
+        return redirect()->route('login');
     }
     
     function edit($id)
