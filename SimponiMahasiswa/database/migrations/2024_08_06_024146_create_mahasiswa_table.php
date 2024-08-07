@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('mahasiswa', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->unique();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->enum('jenis_kelamin', ['L', 'P']);
             $table->string('jurusan');

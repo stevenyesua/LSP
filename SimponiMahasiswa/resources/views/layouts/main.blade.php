@@ -1,3 +1,10 @@
+@php
+    $role = null;
+
+    if (Auth::check()) {
+        $role = Auth::user()->role->nama;
+    }
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,12 +80,6 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('pengumuman.index') }}" class="block py-2 px-3 rounded md:p-0
-                {{ request()->routeIs('pengumuman.index') ? 'text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:dark:text-blue-500' : 'text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent' }}">
-                Pengumuman
-                </a>
-            </li>
-            <li>
                 <a href="/about" class="block py-2 px-3 rounded md:p-0
                 {{ request()->is('about') ? 'text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:dark:text-blue-500' : 'text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent' }}">
                 Informasi Pendaftaran
@@ -90,14 +91,14 @@
                 Biaya Kuliah
                 </a>
             </li>
-            @php
-              $role = null;
 
-              if (Auth::check()) {
-                  $role = Auth::user()->role->nama;
-              }
-            @endphp
             @if($role=='Admin')
+            <li>
+                <a href="{{ route('pengumuman.index') }}" class="block py-2 px-3 rounded md:p-0
+                {{ request()->routeIs('pengumuman.index') ? 'text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:dark:text-blue-500' : 'text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent' }}">
+                Pengumuman
+                </a>
+            </li>
             <li>
                 <a href="{{ route('mahasiswa.index') }}" class="block py-2 px-3 rounded md:p-0
                 {{ request()->routeIs('mahasiswa.index') ? 'text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:dark:text-blue-500' : 'text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent' }}">
@@ -115,6 +116,13 @@
                 <a href="{{ route('mahasiswa.create') }}" class="block py-2 px-3 rounded md:p-0
                 {{ request()->routeIs('mahasiswa.create') ? 'text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:dark:text-blue-500' : 'text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent' }}">
                 Pendaftaran Mahasiswa
+                </a>
+            </li>
+            @elseif($role=='Mahasiswa Baru')
+            <li>
+                <a href="{{ route('pengumuman.index') }}" class="block py-2 px-3 rounded md:p-0
+                {{ request()->routeIs('pengumuman.index') ? 'text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:dark:text-blue-500' : 'text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent' }}">
+                Pengumuman
                 </a>
             </li>
             @endif

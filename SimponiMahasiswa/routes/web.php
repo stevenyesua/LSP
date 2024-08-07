@@ -31,6 +31,13 @@ Route::get('/biaya', function () {
     return view('biaya');
 });
 
+Route::get('/pending', function () {
+    return view('pending');
+});
+
+Route::get('/nonaktif', function () {
+    return view('nonaktif');
+});
 
 Route::controller(UserController::class)->prefix('/user')->name('user.')->group(function () {
     Route::get('/register','register')->name('register');
@@ -41,7 +48,7 @@ Route::controller(UserController::class)->prefix('/user')->name('user.')->group(
 //     return view('home');
 // })->middleware(['auth', 'verified'])->name('home');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth','isActivate'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -80,8 +87,11 @@ Route::middleware('auth')->group(function () {
 
     
     Route::patch('/user/detail/{id}/admin', [UserController::class, 'validationAdmin'])->name('user.validate_admin');
-    
+
     Route::patch('/mahasiswa/detail/{id}/admin', [MahasiswaController::class, 'validationAdmin'])->name('mahasiswa.validate_admin');
+
+    Route::patch('/mahasiswa/detail/{id}/update_role', [UserController::class, 'updateRole'])->name('user.update_role');
+
 
 });
 

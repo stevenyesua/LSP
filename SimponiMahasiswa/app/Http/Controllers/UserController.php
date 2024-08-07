@@ -106,4 +106,13 @@ class UserController extends Controller
         $update->save();
         return redirect()->back();
     }
+
+    public function updateRole(Request $request,string $id)
+    {
+        $update = get_class($this->model)::find($id);
+        // $this->authorize('validationAdmin',[User::class,$update]);
+        $update->role_id = $request->updaterRole;
+        $update->save();
+        return redirect()->back();
+    }
 }

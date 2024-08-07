@@ -1,5 +1,9 @@
 @extends('layouts.main')
 @section('content')
+@php
+$status = $collection->status;
+$role = $collection->user->role_id;
+@endphp
 
 <div class="container-detail bg-gray-900 mt-16 mx-96">
     <div class="title text-white font-semibold p-4 text-lg">
@@ -31,9 +35,27 @@
         <div class="font-semibold text-3xl">
             {{($collection->user->nama)}}
         </div>
-        <div class="font-semibold text-sm bg-gray-900 text-white py-2 px-4 text-center rounded-full mt-2 w-max">
-            {{($collection->user->role->nama)}}
+        <div class="role flex gap-4">
+            <div class="font-semibold text-sm bg-gray-900 text-white py-2 px-4 text-center rounded-full mt-2 w-max">
+                {{($collection->user->role->nama)}}
+            </div>
+            <div class="update-role">
+                @if($status == 'aktif'&& $role == 2)
+                <div class="status-df flex gap-2">
+                    <form action="{{route('user.update_role',['id'=>$collection->id])}}" method="POST">
+                    @method('PATCH')
+                    @csrf
+                        <div class="flex gap-2 status-acc mt-2">
+                            <button type="submit" value = "3" name="updaterRole" id="valid-accept" class="px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                Update Role
+                            </button>
+                        </div>
+                    </form>  
+                </div>
+                @endif
+            </div>
         </div>
+        
         <div class="mt-4 text-sm font-medium text-gray-600">
             Informasi Pribadi
         </div>
@@ -73,9 +95,6 @@
                 Status Mahasiswa
             </div>
             <div class="ml-8">
-                @php
-                $status = $collection->status;
-                @endphp
                 @if($status == 'pending')
                 <div class="status-df flex gap-2">
                     <div>:</div>
@@ -111,7 +130,7 @@
             </div>
         </div>
         <div class="button-detail flex gap-2 mt-2">
-<!-- Button to open modal -->
+            <!-- Button to open modal -->
             <button id="open-modal-btn" class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-gray-600 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
             Cek Hasil Tes
             </button>
@@ -124,7 +143,7 @@
                 <!-- Modal header -->
                 <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                    Bukti Pembayaran
+                    Hasil Test
                     </h3>
                     <button id="close-modal-btn" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white">
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">

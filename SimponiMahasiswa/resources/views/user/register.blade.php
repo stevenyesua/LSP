@@ -77,7 +77,7 @@
                 </div>
                 <div class="relative mt-4 text-xs flex">
                     <p class="">Jika sudah memiliki akun silahkan
-                        <a href="#" class="inline-flex items-center font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                        <a href="/login" class="inline-flex items-center font-medium text-blue-600 dark:text-blue-500 hover:underline">
                        masuk disini.
                         </a>
                     </p>

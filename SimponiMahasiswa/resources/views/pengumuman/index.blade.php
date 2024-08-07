@@ -3,7 +3,11 @@
 <div class="container mt-16 gap-8">
     <div class="welcome text-xl font-semibold">
         Hai Selamat Datang Steven!
+        @if(Auth::user()->role_id=='1')
+        <a href="/pengumuman/create" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Tambah</a>
+        @endif
     </div>
+   
     @foreach ($collection as $idx => $item)
         <div class="slot">
             <div class="bg-gray-900 text-white rounded-t-lg py-2 px-4 font-semibold">
