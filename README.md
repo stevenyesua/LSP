@@ -74,12 +74,97 @@ Alur Program :
 6. Admin buat pengumuman
 7. Mahasiswa lihat pengumuman
 
+Fitur Aplikasi
+1. Bisa Login
+2. Bisa Validasi
+3. Bisa Register
+4. Bisa Cek Profil
+5. Bisa Input Tampil Gambar
+6. Ada role permission
+7. Bisa CRUD Pengumuman
+
 Beberapa penggunaan :
 1. Repository dari Github
 2. Framework laravel
 3. Laravel Breeze sebagai Authentication
 4. Policy sebagai Authorization
 5. Beberapa library css dan js : tailwind, flowbite, dan datatables
+
+Guide
+
+Install Laravel & Node.js
+
+//buat project
+composer create-project laravel/laravel SimponiMahasiswa
+
+//push database
+php artisan migrate
+
+//push value database
+php artisan db:seed
+
+//run server laravel
+php artisan serve
+
+//install node.js
+npm install
+
+//run node.js
+npm run dev
+
+Install Tailwind compare with laravel : 
+
+1. npm install -D tailwindcss postcss autoprefixer
+2. npx tailwindcss init -p
+3. edit tailwind.config.js : 
+  /** @type {import('tailwindcss').Config} */
+  export default {
+    content: [
+      "./resources/**/*.blade.php",
+      "./resources/**/*.js",
+      "./resources/**/*.vue",
+    ],
+    theme: {
+      extend: {},
+    },
+    plugins: [],
+  }
+4. app.cs : 
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+5. npm install @tailwindcss/forms
+6. @vite('resources/css/app.css')
+
+Install Flowbite Library
+1.npm install flowbite
+2. add plugin and content at tailwind.config.js
+
+ module.exports = {
+
+    plugins: [
+        require('flowbite/plugin')
+    ]
+
+}
+
+module.exports = {
+
+    content: [
+        "./node_modules/flowbite/**/*.js"
+    ]
+
+}
+
+3. import java script
+<script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+
+Install datatables :
+1. download datatables.js
+2. download datatables.css
+3. download jquery.min.js
+
+
 
 
    

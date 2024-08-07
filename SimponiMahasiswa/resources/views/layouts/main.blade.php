@@ -45,7 +45,7 @@
                     </div>
                     <ul class="py-2" aria-labelledby="user-menu-button">
                     <li>
-                        <a href="/mahasiswa/detail/{{Auth::user()->id}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Informasi</a>
+                        <a href="/informasi-profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Informasi</a>
                     </li>
                     <li>
                         <form id="keluar" method="POST" action="{{ route('logout') }}">
@@ -175,17 +175,6 @@
             </div>
         </div>
     </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const dropdownToggle = document.getElementById('user-menu-button');
-            const dropdownMenu = document.getElementById('user-dropdown');
-
-            if (dropdownToggle && dropdownMenu) {
-                dropdownToggle.addEventListener('click', function () {
-                    dropdownMenu.classList.toggle('hidden');
-                });
-            }
-        });
-    </script>
+<script src="{{ asset('js/flowbite2.js')}}"></script>
 </body>
 </html>

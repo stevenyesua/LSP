@@ -88,6 +88,10 @@ Route::middleware(['auth','isActivate'])->group(function () {
         Route::patch('/update/{id}','update')->name('update');
         Route::delete('/destroy/{id}','destroy')->name('destroy');
     });
+
+    Route::get('/informasi-profile', function () {
+        return view('informasi-profile');
+    });
     
 
     
