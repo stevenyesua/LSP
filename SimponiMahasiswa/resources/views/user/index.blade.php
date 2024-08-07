@@ -31,7 +31,6 @@
                     @endphp
                     @if($status == 'pending')
                     <div class="status-df flex">
-                        <div class="mr-1">:</div>
                         <div class="font-semibold text-sm bg-yellow-900 text-white py-2 px-4 text-center rounded-full mt-2 w-max">
                             Pending
                         </div>

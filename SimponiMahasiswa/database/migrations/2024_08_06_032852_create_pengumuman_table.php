@@ -16,7 +16,7 @@ return new class extends Migration
             // $table->UnsignedBigInteger('user_id');
             // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('judul');
-            $table->string('deskripsi');
+            $table->longtext('deskripsi');
             $table->string('gambar');
             $table->dateTime('tanggal');
             $table->timestamps();

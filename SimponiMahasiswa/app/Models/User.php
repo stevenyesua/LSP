@@ -57,4 +57,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    
+    public function isAdmin()
+    {
+        return $this->role_id == 1;
+    } 
+
+    public function isMahasiswaBaru()
+    {
+        return $this->role_id == 3;
+    } 
+    
+    public function isCalonMahasiswa()
+    {
+        return $this->role_id == 2;
+    } 
 }

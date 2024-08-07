@@ -26,36 +26,25 @@ $role = $collection->user->role_id;
                 : {{($collection->user->no_telp)}} <br>
             </div>
         </div> 
-        <div class="tombol-mahasiswa-detail mt-5">
-            <a href="/login" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Edit</a>
-            <a href="/login" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">Hapus</a>
+        <div class="tombol-mahasiswa-detail mt-5 flex gap-2">
+            <a href="{{ route('mahasiswa.edit', $collection->id) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Edit</a>
+            <form action="{{ route('mahasiswa.destroy', $collection->id) }}" method="post">
+                @csrf
+                @method('delete')
+                <input type="hidden" name="_method" value="delete">
+                <button type="hidden" name="_method" value="delete" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800 text-center inline-flex items-center justify-center dark:focus:ring-[#3b5998]/55">
+                    Hapus
+                </button>
+            </form> 
         </div>
      </div>
     <div class="kanan-detail-user">
         <div class="font-semibold text-3xl">
             {{($collection->user->nama)}}
         </div>
-        <div class="role flex gap-4">
-            <div class="font-semibold text-sm bg-gray-900 text-white py-2 px-4 text-center rounded-full mt-2 w-max">
-                {{($collection->user->role->nama)}}
-            </div>
-            <div class="update-role">
-                @if($status == 'aktif'&& $role == 2)
-                <div class="status-df flex gap-2">
-                    <form action="{{route('user.update_role',['id'=>$collection->id])}}" method="POST">
-                    @method('PATCH')
-                    @csrf
-                        <div class="flex gap-2 status-acc mt-2">
-                            <button type="submit" value = "3" name="updaterRole" id="valid-accept" class="px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                Update Role
-                            </button>
-                        </div>
-                    </form>  
-                </div>
-                @endif
-            </div>
+        <div class="font-semibold text-sm bg-gray-900 text-white py-2 px-4 text-center rounded-full mt-2 w-max">
+            {{($collection->user->role->nama)}}
         </div>
-        
         <div class="mt-4 text-sm font-medium text-gray-600">
             Informasi Pribadi
         </div>
@@ -69,7 +58,15 @@ $role = $collection->user->role_id;
                 Asal Sekolah <br>
             </div>
             <div class="mt-4 ml-16 text-sm font-medium text-gray-600">
-                : {{($collection->jenis_kelamin)}} <br>
+                @php
+                $jenis_kelamin = $collection->jenis_kelamin;
+                @endphp
+                @if($jenis_kelamin == 'L')
+                :  Laki - laki
+                @elseif($jenis_kelamin == 'P')
+                : Perempuan
+                @endif
+                <br>
                 : {{($collection->agama)}} <br>
                 : {{($collection->tempat_lahir)}} <br>
                 : {{($collection->user->tanggal_lahir)}} <br>

@@ -107,3 +107,19 @@
   .box-penjelasan{
     justify-content: center;
   }
+
+  .judul-pengumuman{
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+  }
+
+  .deskripsi-pengumuman{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+
+
+  

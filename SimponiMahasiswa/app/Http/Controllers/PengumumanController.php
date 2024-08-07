@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Pengumuman;
 use App\Models\User;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 
 class PengumumanController extends Controller
@@ -18,20 +19,20 @@ class PengumumanController extends Controller
     }
 
     function index() {
-        // $this->authorize('view',User::class);
+        $this->authorize('view',Pengumuman::class);
         $collection = Pengumuman::all();
         return view('pengumuman.index', compact('collection'));
     }
 
     function create() {
-        // $this->authorize('create',User::class);
+        $this->authorize('create',Pengumuman::class);
         $user = User::all();
         return view('pengumuman.create', compact('user'));
     }
 
     function store(Request $request)
     {
-        // $this->authorize('create',User::class);
+        $this->authorize('create',Pengumuman::class);
         $model = $this->model; 
         // $model->user_id = $request->user_id;
         $model->judul = $request->judul;
@@ -51,26 +52,18 @@ class PengumumanController extends Controller
     
     function edit($id)
     {
-        // $this->authorize('update',User::class);
+        $this->authorize('update',Pengumuman::class);
         $pengumuman = get_class($this->model)::find($id);
         $user = User::all();
         return view('pengumuman.edit', compact('pengumuman','user'));
     }
 
     function update(Request $request, $id) {
-        // $this->authorize('update',User::class);
+        $this->authorize('update',Pengumuman::class);
         $update = get_class($this->model)::find($id);
-        $update->user_id = $request->user_id;
         $update->judul = $request->judul;
         $update->deskripsi = $request->deskripsi;
-        $foto='';
-        if ($request->hasFile('foto') && $request->file('foto')->isValid()) {
-            $text = $request->foto->getClientOriginalExtension();
-            $foto = "foto-".time() . "." . $text;
-            $request->foto->storeAs("public", $foto);
-            $update->foto = $foto;
-        };
-        $update->tanggal = $request->tanggal;
+        $update->tanggal = Carbon::today()->format('Y-m-d');;
         $update->save();
         $request->session()->flash("info", "Data berhasil diubah");
         return redirect()->route('pengumuman.index');
@@ -78,13 +71,14 @@ class PengumumanController extends Controller
 
     function destroy($id)
     {
-        // $this->authorize('delete',User::class);
+        $this->authorize('delete',Pengumuman::class);
         $destroy = get_class($this->model)::find($id);
         $destroy->delete();
         return redirect()->back();
     }
     
     function detail($id) {
+        $this->authorize('view',Pengumuman::class);
         $collection = Pengumuman::find($id);
         return view('pengumuman.detail', compact('collection'));
     }

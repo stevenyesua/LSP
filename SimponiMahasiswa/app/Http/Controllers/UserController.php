@@ -16,7 +16,7 @@ class UserController extends Controller
     }
 
     function index() {
-        // $this->authorize('view',User::class);
+        $this->authorize('view',User::class);
         $collection = User::all();
         return view('user.index', compact('collection'));
     }
@@ -40,7 +40,7 @@ class UserController extends Controller
         $bukti='';
         if ($request->hasFile('bukti') && $request->file('bukti')->isValid()) {
             $text = $request->bukti->getClientOriginalExtension();
-            $bukti = "foto-".time() . "." . $text;
+            $bukti = "foto_bukti-".time() . "." . $text;
             $request->bukti->storeAs("public", $bukti);
             $model->bukti = $bukti;
         };
@@ -60,25 +60,21 @@ class UserController extends Controller
     
     function edit($id)
     {
-        // $this->authorize('update',User::class);
+        $this->authorize('update',User::class);
         $user = get_class($this->model)::find($id);
         $role = Role::all();
         return view('user.edit', compact('user','role'));
     }
 
     function update(Request $request, $id) {
-        // $this->authorize('update',User::class);
+        $this->authorize('update',User::class);
         $update = get_class($this->model)::find($id);
         $update->nama = $request->nama;
         $update->email = $request->email;
-        $update->password = bcrypt($request->password);
         $update->asal_sekolah = $request->asal_sekolah;
         $update->no_telp = $request->no_telp;
         $update->tanggal_lahir = $request->tanggal_lahir;
-        $update->bukti = $request->bukti;
         $update->status = $request->status;
-        $update->role_id = 2;
-        $update->foto = $request->foto;
         $update->save();
         $request->session()->flash("info", "Data berhasil diubah");
         return redirect()->route('user.index');
@@ -86,10 +82,10 @@ class UserController extends Controller
 
     function destroy($id)
     {
-        // $this->authorize('delete',User::class);
+        $this->authorize('delete',User::class);
         $destroy = get_class($this->model)::find($id);
         $destroy->delete();
-        return redirect()->back();
+        return redirect()->route('user.index');
     }
 
     
@@ -100,18 +96,10 @@ class UserController extends Controller
 
     public function validationAdmin(Request $request,string $id)
     {
+        $this->authorize('update',User::class);
         $update = get_class($this->model)::find($id);
         // $this->authorize('validationAdmin',[User::class,$update]);
         $update->status = $request->validatorAdmin;
-        $update->save();
-        return redirect()->back();
-    }
-
-    public function updateRole(Request $request,string $id)
-    {
-        $update = get_class($this->model)::find($id);
-        // $this->authorize('validationAdmin',[User::class,$update]);
-        $update->role_id = $request->updaterRole;
         $update->save();
         return redirect()->back();
     }

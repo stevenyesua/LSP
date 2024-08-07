@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
             'no_telp' => '08123213123',
             'tanggal_lahir' => '2000-12-29',
             'bukti' => 'buktifelix.jpg',
-            'status' => 'pending',
+            'status' => 'aktif',
             'role_id' => 2,
             'foto' => 'felixpp.jpg',
         ]);

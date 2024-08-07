@@ -18,7 +18,7 @@ class isActivate
 
     public function handle(Request $request, Closure $next)
     {
-
+        
         if (Auth::check()) {
             $user = Auth::user()->status;
             $status_user = $user;

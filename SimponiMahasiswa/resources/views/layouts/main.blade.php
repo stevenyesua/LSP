@@ -20,7 +20,7 @@
     @vite('resources/css/app.css')
 
 </head>
-<body class="bg-gray-300">
+<body class="bg-gray-300 flex flex-col min-h-screen">
     <nav class="bg-white border-gray-200 dark:bg-gray-900">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
@@ -45,7 +45,7 @@
                     </div>
                     <ul class="py-2" aria-labelledby="user-menu-button">
                     <li>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Informasi</a>
+                        <a href="/mahasiswa/detail/{{Auth::user()->id}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Informasi</a>
                     </li>
                     <li>
                         <form id="keluar" method="POST" action="{{ route('logout') }}">
@@ -130,8 +130,10 @@
         </div>
         </div>
     </nav>
-    
-    @yield('content')
+    <div class="grow">
+        @yield('content')
+
+    </div>
 
     <footer class="bg-white dark:bg-gray-900 mt-32">
         <div class="mx-auto w-full max-w-screen-xl">

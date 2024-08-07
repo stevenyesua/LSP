@@ -29,13 +29,14 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
-        // if (Auth::user()->id_role == 1) {
-        //     return redirect()->intended('/');
-        // }
-        // elseif (Auth::user()->id_role == 2) {
-        //     return redirect()->intended('/pengumuman/index');
-        // }
+        // return redirect()->intended(RouteServiceProvider::HOME);
+
+        if (Auth::user()->role_id == 1 || Auth::user()->role_id == 3 ) {
+            return redirect()->intended('/');
+        }
+        elseif (Auth::user()->role_id == 2) {
+            return redirect()->intended('/mahasiswa/create');
+        }
         
     }
 

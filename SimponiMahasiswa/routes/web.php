@@ -18,9 +18,14 @@ use App\Http\Controllers\PengumumanController;
 |
 */
 
+// Route::get('/', function () {
+//     return view('home');
+// });
+
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
+
 
 
 Route::get('/about', function () {

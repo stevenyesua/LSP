@@ -77,8 +77,15 @@
             </div>
         </div>
         <div class="button-detail flex gap-2 mt-2">
-            <a href="/login" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Edit</a>
-            <a href="/login" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">Hapus</a>
+            <a href="{{ route('user.edit', $collection->id) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Edit</a>
+            <form action="{{ route('user.destroy', $collection->id) }}" method="post">
+                @csrf
+                @method('delete')
+                <input type="hidden" name="_method" value="delete">
+                <button type="hidden" name="_method" value="delete" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800 text-center inline-flex items-center justify-center dark:focus:ring-[#3b5998]/55">
+                    Hapus
+                </button>
+            </form> 
             <!-- Button to open modal -->
             <button id="open-modal-btn" class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-gray-600 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
             Cek Bukti Pembayaran

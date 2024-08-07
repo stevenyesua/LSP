@@ -1,6 +1,7 @@
 @extends('layouts.main')
 @section('content')
 
+@if($is_registered == false)
 <div class="container mt-16">
     <div class="box flex">
         <div class="box-penjelasan bg-gray-900 w-96 text-white p-8">
@@ -92,6 +93,58 @@
         </div>
     </div>
 </div>
-
+@elseif($mahasiswa[0]->status == 'nonaktif')
+<div class="container mt-32 w-max px-80 ml-16">
+    <div class="box-about flex bg-white">
+        <div class="box-title bg-gray-900 py-8 px-8 text-white font-semibold text-xl">
+            Pemberitahuan Penolakan Tentang Pendaftaran Mahasiswa
+        </div>
+        <div class="box-deskripsi p-8 text-sm">
+            <div class="font-semibold">
+                Maaf anda telah di tolak menjadi mahasiswa di UMDP.:
+            </div>
+            <div class="mt-4">
+                Penolakan terjadi karena tidak terpenuhnya salah satu atau lebih dari satu ketentuan di bawah <br>
+                Jika ada pertanyaan yang berhubungan dengan pendaftaran mahasiswa , silahkan hubungi nomor admin di bawah ini : <br>
+                082181034762 (Steven)
+            </div>
+            <div class="font-semibold mt-4">
+                Ketentuan:
+            </div>
+            <div class="mt-4">
+                1. Pendaftar baru harus melengkapi semua data yang di minta sesuai dengan data asli. <br>
+                2. Pendaftar wajib melampirkan bukti hasil tes yang valid. <br>
+                3. Pendaftar wajib menunggu waktu selama 1x24 jam untuk proses penerimaan mahasiswa.
+            </div>
+        </div>
+    </div>
+</div>
+@else
+<div class="container mt-32 w-max px-80 ml-16">
+    <div class="box-about flex bg-white">
+        <div class="box-title bg-gray-900 py-8 px-8 text-white font-semibold text-xl">
+            Pemberitahuan Informasi Tentang Pendaftaran Mahasiswa
+        </div>
+        <div class="box-deskripsi p-8 text-sm">
+            <div class="font-semibold">
+                Terimakasih telah mendaftarkan menjadi mahasiswa di UMDP.:
+            </div>
+            <div class="mt-4">
+                Selanjutnya akun anda akan melalui proses tahap verifikasi oleh Admin selama 1x24 jam. <br>
+                Jika pendaftaran mahasiswa tidak dapat di gunakan selama lebih dari 1x24 jam, silahkan hubungi nomor admin di bawah ini : <br>
+                082181034762 (Steven)
+            </div>
+            <div class="font-semibold mt-4">
+                Ketentuan:
+            </div>
+            <div class="mt-4">
+                1. Pendaftar baru harus melengkapi semua data yang di minta sesuai dengan data asli. <br>
+                2. Pendaftar wajib melampirkan bukti hasil tes yang valid. <br>
+                3. Pendaftar wajib menunggu waktu selama 1x24 jam untuk proses penerimaan mahasiswa.
+            </div>
+        </div>
+    </div>
+</div>
+@endif
 
 @endsection

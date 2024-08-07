@@ -22,7 +22,16 @@
                     <td><img src="{{ asset('storage/' . $item->user->foto) }}" alt="Image" style="max-width: 100px; max-height: 100px;"></td>
                     <td class="px-4 py-2">{{ $item->user->nama }}</td>
                     <td class="px-4 py-2">{{ $item->user->email }}</td>
-                    <td class="px-4 py-2">{{ $item->jenis_kelamin }}</td>
+                    <td>
+                    @php
+                    $jenis_kelamin = $item->jenis_kelamin;
+                    @endphp
+                    @if($jenis_kelamin == 'L')
+                    Laki - laki
+                    @elseif($jenis_kelamin == 'P')
+                    Perempuan
+                    @endif
+                    </td>
                     <td class="px-4 py-2">{{ $item->jurusan }}</td>
                     <td class="px-4 py-2">{{ $item->waktu_kuliah }}</td>
                     <td class="px-4 py-2">
