@@ -7,6 +7,7 @@
             <div>
                 {{ \Carbon\Carbon::parse($collection->tanggal)->format('j F Y') }}
             </div>
+            @if(Auth::user()->role_id=='1')
             <div class="flex gap-2">
                 <a href="{{ route('pengumuman.edit', $collection->id) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Edit</a>
                 <form action="{{ route('user.destroy', $collection->id) }}" method="post">
@@ -18,6 +19,7 @@
                     </button>
                 </form> 
             </div>
+            @endif
         </div>
         <div class="px-8 pt-8 text-2xl ">
             <div class="title-detail-pengumuman flex">
