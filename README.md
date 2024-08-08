@@ -1,10 +1,10 @@
 # Project LSP
 
 ## Developer : 
--Nama = Steven Yesua Sutanto
--NPM = 2024250016
--Prodi = Informatika
--Bidang = Pengembang Web
+- Nama = Steven Yesua Sutanto
+- NPM = 2024250016
+- Prodi = Informatika
+- Bidang = Pengembang Web
 
 Spesifikasi Hardware:
 CPU = I5-1140H @2.7 GHz
