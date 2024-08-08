@@ -1,4 +1,5 @@
-# Project LSP
+# Project LSP 
+# Aplikasi Pengelolaan Mahasiswa Baru
 
 ## Developer : 
 - Nama = Steven Yesua Sutanto
