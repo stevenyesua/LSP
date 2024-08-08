@@ -19,8 +19,15 @@
                 </form> 
             </div>
         </div>
-        <div class="px-8 pt-8 text-2xl font-semibold">
-            {{$collection->judul}}
+        <div class="px-8 pt-8 text-2xl ">
+            <div class="title-detail-pengumuman flex">
+                <div class="font-semibold">
+                    {{$collection->judul}}
+                </div>
+                <div class="font-medium text-xs text-gray-600">
+                    Di posting oleh {{$collection->user->nama}}
+                </div>
+            </div> 
         </div>
         <div class="">
             <img src="{{ asset('storage/' . $collection->gambar) }}" alt="Image" class="rounded-lg w-max p-8">

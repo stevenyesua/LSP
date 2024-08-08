@@ -29,6 +29,17 @@ class UserController extends Controller
 
     function store(Request $request)
     {
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8',
+            'asal_sekolah' => 'required|string|max:255',
+            'no_telp' => 'required|string|max:15',
+            'tanggal_lahir' => 'required|date',
+            'bukti' => 'nullable|file|mimes:jpg,png,jpeg,pdf',
+            'foto' => 'nullable|file|mimes:jpg,png,jpeg'
+        ]);
+        
         // $this->authorize('create',User::class);
         $model = $this->model; 
         $model->nama = $request->nama;

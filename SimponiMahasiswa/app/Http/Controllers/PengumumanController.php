@@ -32,9 +32,16 @@ class PengumumanController extends Controller
 
     function store(Request $request)
     {
+        $request->validate([
+            'judul' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
+            'gambar' => 'nullable|file|mimes:jpg,png,jpeg'
+        ]);
+
         $this->authorize('create',Pengumuman::class);
         $model = $this->model; 
         // $model->user_id = $request->user_id;
+        $model->user_id = Auth::user()->id;
         $model->judul = $request->judul;
         $model->deskripsi = $request->deskripsi;
         $foto='';

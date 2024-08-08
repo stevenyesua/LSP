@@ -33,6 +33,16 @@ class MahasiswaController extends Controller
 
     function store(Request $request)
     {
+        $request->validate([
+            'jenis_kelamin' => 'required',
+            'jurusan' => 'required',
+            'waktu_kuliah' => 'required',
+            'agama' => 'required',
+            'alamat' => 'required',
+            'tempat_lahir' => 'required',
+            'hasil_test' => 'required|file|mimes:jpg,png,jpeg,pdf'
+        ]);
+
         $this->authorize('create',Mahasiswa::class);
         $model = $this->model; 
         $model->user_id = Auth::user()->id;
