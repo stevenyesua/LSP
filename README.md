@@ -1,6 +1,6 @@
 # Project LSP
 
-##Developer : 
+## Developer : 
 -Nama = Steven Yesua Sutanto
 -NPM = 2024250016
 -Prodi = Informatika
